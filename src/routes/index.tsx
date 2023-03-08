@@ -1,8 +1,9 @@
-import { JSX } from "solid-js";
+import { createSignal, JSX, onMount, Show } from "solid-js";
 import banner from "~/assets/banner.svg";
 import Slider from "~/components/Slider";
 import Button from "~/components/Button";
 import VanillaTilt from "vanilla-tilt";
+import Ad from "~/components/Ad";
 
 import featured, { Feature } from "~/data/featured";
 
@@ -10,6 +11,15 @@ export default function Index(): JSX.Element {
   function initTilt(elm: HTMLElement) {
     VanillaTilt.init(elm);
   }
+
+  onMount(() => {
+    const ads = document.createElement("script");
+    ads.async = true;
+    ads.crossOrigin = "anonymous";
+    ads.src =
+      "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8517735295733237";
+    document.head.appendChild(ads);
+  });
 
   return (
     <main>
@@ -19,6 +29,7 @@ export default function Index(): JSX.Element {
           An open-source unblocked games website built with simplicity in mind.
         </p>
         <Button text="Start Playing!" href="/games" icon="fa-gamepad-modern" />
+        <Ad />
       </section>
 
       <section>

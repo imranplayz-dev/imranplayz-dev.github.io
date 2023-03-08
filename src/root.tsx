@@ -6,10 +6,8 @@ import {
   FileRoutes,
   Head,
   Html,
-  Meta,
   Routes,
-  Scripts,
-  Title
+  Scripts
 } from "solid-start";
 import "./root.css";
 
@@ -19,11 +17,7 @@ import SEO from "~/components/SEO";
 
 export default function Root() {
   onMount(async () => {
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("/sw.js", {
-        scope: "/~uv/"
-      });
-    }
+    await import("~/scripts/registerSw");
     await import("~/scripts/options");
   });
 
@@ -32,14 +26,12 @@ export default function Root() {
       <Head>
         <SEO />
 
-        <script src="/cdn/js/uv/bundle.js" defer></script>
-        <script src="/cdn/js/uv/config.js" defer></script>
+        <script src="/uv/uv.bundle.js" defer></script>
+        <script src="/uv/uv.config.js" defer></script>
         <script src="/cdn/js/pro.fontawesome.js" defer></script>
         <script src="/cdn/ruffle/ruffle.js" defer></script>
 
         {/* Google Services */}
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8517735295733237"
-          crossorigin="anonymous"></script>
         <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-0GR0HN1RFL"

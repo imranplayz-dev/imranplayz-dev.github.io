@@ -21,34 +21,40 @@ export default function Navbar(): JSX.Element {
           />
           <IconButton
             href="https://github.com/Radon-Games/Radon-Games"
-            text="Discord"
+            text="GitHub"
             type="fa-brands"
             icon="fa-github"
           />
         </div>
         <span class="font-semibold">
-          <i class="fa-regular fa-code-branch"></i> v{version}
+          <a
+            class="hover:underline hover:text-amber-500 transition-all"
+            href={`https://github.com/Radon-Games/Radon-Games/releases/tag/v${version}`}
+            target="_blank"
+          >
+            <i class="fa-regular fa-code-branch"></i> v{version}
+          </a>
         </span>
       </div>
       <div class="flex gap-12">
         <div class="flex flex-col gap-2">
           <FooterLink text="Home" href="/" />
           <FooterLink text="Games" href="/games" />
-          <FooterLink text="Apps" href="/apps" />
+          <FooterLink text="Proxy" href="/web" />
         </div>
         <div class="flex flex-col gap-2">
           <FooterLink text="Partners" href="/partners" />
-          <FooterLink text="Settings" href="/settings" />
+          <FooterLink text="Settings" href="/options" />
           <FooterLink text="Privacy" href="/privacy" />
         </div>
         <div class="flex flex-col gap-2">
           <FooterLink
             text="Request"
-            href="https://github.com/Radon-Games/Radon-Games/issues/new?assignees=&labels=game%20request&template=game_request.md"
+            href="https://github.com/Radon-Games/Radon-Games/issues/new?assignees=&labels=game%20request&template=game_request.yaml"
           />
           <FooterLink
             text="Report"
-            href="https://github.com/Radon-Games/Radon-Games/issues/new?assignees=&labels=bug&template=bug_report.md"
+            href="https://github.com/Radon-Games/Radon-Games/issues/new?assignees=&labels=bug&template=bug_report.yaml"
           />
           <FooterLink
             text="Patreon"
